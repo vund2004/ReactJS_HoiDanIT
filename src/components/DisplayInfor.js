@@ -1,5 +1,6 @@
 import React from "react";
 import "./DisplayInfor.scss"
+import logo from "./../logo.svg"
 class DisplayInfor extends React.Component {
     state = {
         ishow: true
@@ -16,6 +17,7 @@ class DisplayInfor extends React.Component {
         const { listUser } = this.props        //props 
         return (
             <div>
+                <img src={logo}/>
                 <div>
                     <span onClick={() => { this.hanleshowhide() }}>
                         {this.state.ishow == true ? "Ẩn danh sách" : "Hiện danh sách"}
