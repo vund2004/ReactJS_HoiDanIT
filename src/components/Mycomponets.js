@@ -17,16 +17,28 @@ class Mycomponent extends React.Component {
             }
         )
     }
-    render() {
+    handledelete = (UserId) => {
+        let listUserCopy = this.state.listUser;
+        listUserCopy = listUserCopy.filter(item => item.id !== UserId);
+        this.setState(
+            {
+                listUser: listUserCopy
+            }
+        )
+    }
 
+    render() {
         return (
-            <div>
-                <AddUserInfor listUser={this.listUser} handleaddNewuser={this.handleaddNewuser} />
+            <>
+                <AddUserInfor listUser={this.listUser}
+                    handleaddNewuser={this.handleaddNewuser} />
                 <br></br>
                 <DisplayInfor
                     listUser={this.state.listUser}
+                    handledelete={this.handledelete}
                 />
-            </div>
+
+            </>
         );
     }
 }

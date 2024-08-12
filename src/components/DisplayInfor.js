@@ -1,6 +1,6 @@
 import React from "react";
 import "./DisplayInfor.scss"
-import logo from "./../logo.svg"
+// import logo from "./../logo.svg"
 class DisplayInfor extends React.Component {
     state = {
         ishow: true
@@ -13,11 +13,12 @@ class DisplayInfor extends React.Component {
             }
         )
     }
+
     render() {
         const { listUser } = this.props        //props 
         return (
             <div>
-                <img src={logo}/>
+                {/* <img src={logo}/> */}
                 <div>
                     <span onClick={() => { this.hanleshowhide() }}>
                         {this.state.ishow == true ? "Ẩn danh sách" : "Hiện danh sách"}
@@ -31,7 +32,11 @@ class DisplayInfor extends React.Component {
                                     <br></br>
                                     <div>My name is {user.name}</div>
                                     <div>My age is {user.age}</div>
+                                    <div>
+                                        <button onClick={() => { this.props.handledelete(user.id) }}>Delete</button>
+                                    </div>
                                     <hr />
+
                                 </div>
                             );
                         })}
